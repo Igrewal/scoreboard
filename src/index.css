@@ -66,3 +66,37 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.ig-scoreboard-grid {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  align-items: center;
+  column-gap: 0.5em;
+  width: 100vw;
+  font-size: large;
+  padding: 20px;
+}
+
+.align-middle {
+  text-align: center;
+}
+
+.ig-score-number {
+  color: rgb(17, 209, 29);
+  padding: 0.35em;
+  border: solid white 5px;
+}
+
+.join-input {
+  font-size: x-large;
+  margin: 10px;
+}
+
+.join-text {
+  font-size: large;
+}
+
+.player-input {
+  font-size: large;
+  max-width: 60%;
+}

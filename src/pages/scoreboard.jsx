@@ -7,6 +7,8 @@ const Scoreboard = () => {
   const { code } = useParams();
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
+  const [playerOneName, setPlayerOneName] = useState("Home");
+  const [playerTwoName, setPlayerTwoName] = useState("Visitor");
 
   useEffect(() => {
     const scoreRef = ref(database, `scores/${code}`);
@@ -15,16 +17,24 @@ const Scoreboard = () => {
       if (data) {
         setHomeScore(data.home);
         setAwayScore(data.away);
+        setPlayerOneName(data.playerOneName);
+        setPlayerTwoName(data.playerTwoName);
       }
     });
   }, [code]);
 
   return (
-    <div>
+    <div className="align-middle">
       <h1>Scoreboard</h1>
-      <div>
-        <h2>Home: {homeScore}</h2>
-        <h2>Away: {awayScore}</h2>
+      <div className="ig-scoreboard-grid">
+        <section>
+          <h2>{playerOneName}:</h2>
+          <h1 className="ig-score-number">{homeScore}</h1>
+        </section>
+        <section>
+          <h2>{playerTwoName}:</h2>
+          <h1 className="ig-score-number">{awayScore}</h1>
+        </section>
       </div>
     </div>
   );
